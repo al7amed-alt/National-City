@@ -366,5 +366,74 @@
     document.getElementById("message-box").textContent = message;
   }
 
+
+  // Touch and on-screen controls
+  const touchControlMap = {
+    up: "arrowup",
+    down: "arrowdown",
+    left: "arrowleft",
+    right: "arrowright"
+  };
+
+  document.querySelectorAll("[data-control]").forEach((button) => {
+    const controlName = button.dataset.control;
+    const mappedKey = touchControlMap[controlName];
+
+    const press = (event) => {
+      event.preventDefault();
+      keys[mappedKey] = true;
+      button.classList.add("active");
+    };
+
+    const release = (event) => {
+      event.preventDefault();
+      keys[mappedKey] = false;
+      button.classList.remove("active");
+    };
+
+    button.addEventListener("pointerdown", press);
+    button.addEventListener("pointerup", release);
+    button.addEventListener("pointercancel", release);
+    button.addEventListener("pointerleave", release);
+    button.addEventListener("contextmenu", (event) => event.preventDefault());
+  });
+
+  const touchInteractButton = document.getElementById("touch-interact");
+  const touchPauseButton = document.getElementById("touch-pause");
+
+  touchInteractButton.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    touchInteractButton.classList.add("active");
+    interact();
+  });
+
+  ["pointerup", "pointercancel", "pointerleave"].forEach((eventName) => {
+    touchInteractButton.addEventListener(eventName, () => {
+      touchInteractButton.classList.remove("active");
+    });
+  });
+
+  touchPauseButton.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    touchPauseButton.classList.add("active");
+    paused = !paused;
+  });
+
+  ["pointerup", "pointercancel", "pointerleave"].forEach((eventName) => {
+    touchPauseButton.addEventListener(eventName, () => {
+      touchPauseButton.classList.remove("active");
+    });
+  });
+
+  window.addEventListener("blur", () => {
+    Object.keys(keys).forEach((key) => {
+      keys[key] = false;
+    });
+
+    document.querySelectorAll(".touch-button, .action-button").forEach((button) => {
+      button.classList.remove("active");
+    });
+  });
+
   updateStats();
 })();

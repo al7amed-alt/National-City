@@ -189,3 +189,145 @@ h1 {
     width: 100%;
   }
 }
+
+
+/* On-screen controls */
+.touch-controls {
+  width: min(1490px, 100%);
+  margin: 0 auto 18px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.direction-pad {
+  width: 210px;
+  height: 170px;
+  display: grid;
+  grid-template-columns: repeat(3, 64px);
+  grid-template-rows: repeat(3, 50px);
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.touch-button,
+.action-button {
+  border: 0;
+  color: white;
+  background: #1c7799;
+  box-shadow: 0 5px 0 #13566e;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.touch-button {
+  width: 64px;
+  height: 50px;
+  border-radius: 14px;
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.touch-button:active,
+.touch-button.active,
+.action-button:active,
+.action-button.active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #13566e;
+  background: #155f7b;
+}
+
+.up-button {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.left-button {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.down-button {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.right-button {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.action-button {
+  width: 96px;
+  height: 82px;
+  border-radius: 50%;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.action-button small {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.interact-button {
+  background: #2d9b55;
+  box-shadow: 0 5px 0 #1d6d3a;
+}
+
+.pause-button {
+  background: #c58323;
+  box-shadow: 0 5px 0 #875813;
+}
+
+@media (max-width: 950px) {
+  .touch-controls {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    padding: 10px 14px 16px;
+    background: rgba(234, 246, 251, 0.94);
+    backdrop-filter: blur(4px);
+  }
+}
+
+@media (max-width: 600px) {
+  .touch-controls {
+    gap: 8px;
+  }
+
+  .direction-pad {
+    width: 175px;
+    height: 145px;
+    grid-template-columns: repeat(3, 52px);
+    grid-template-rows: repeat(3, 44px);
+  }
+
+  .touch-button {
+    width: 52px;
+    height: 44px;
+    font-size: 22px;
+  }
+
+  .action-buttons {
+    gap: 10px;
+  }
+
+  .action-button {
+    width: 75px;
+    height: 68px;
+    font-size: 21px;
+  }
+}
