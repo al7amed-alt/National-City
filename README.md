@@ -36,3 +36,15 @@ Choose a girl, boy, woman, or man.
 A child plays as a student.
 An adult plays as a community volunteer.
 Walk to the building outlined in yellow and press E.
+
+
+ON-SCREEN CONTROLS
+- ▲ Move up
+- ▼ Move down
+- ◀ Move left
+- ▶ Move right
+- E / Interact: complete a mission near the highlighted building
+- II / Pause: pause or resume the game
+
+The on-screen controls work with a mouse, touchscreen, tablet, or phone.
+Keyboard controls remain available.
