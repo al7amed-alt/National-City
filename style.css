@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #17323f;
+  background: #eaf6fb;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+  background: linear-gradient(180deg, #c9efff, #eefbe9);
+}
+
+.start-card {
+  width: min(900px, 96vw);
+  padding: 34px;
+  text-align: center;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+}
+
+h1 {
+  margin: 0;
+  font-size: 58px;
+}
+
+.tagline {
+  margin-top: 8px;
+  font-size: 22px;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.character-card {
+  min-height: 180px;
+  padding: 14px;
+  border: 3px solid #d8e7ec;
+  border-radius: 20px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.character-card:hover {
+  transform: translateY(-3px);
+}
+
+.character-card.selected {
+  border-color: #1c7799;
+  box-shadow: 0 0 0 4px rgba(28, 119, 153, 0.18);
+}
+
+.character-card strong,
+.character-card small {
+  display: block;
+}
+
+.character-card strong {
+  font-size: 21px;
+}
+
+.character-card small {
+  margin-top: 5px;
+}
+
+.character-icon {
+  display: block;
+  font-size: 72px;
+}
+
+#start-button,
+#reset-button {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 28px;
+  color: white;
+  background: #1c7799;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+#start-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.instructions {
+  margin-bottom: 0;
+  color: #48616c;
+}
+
+.top-bar {
+  min-height: 64px;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  background: #17323f;
+  font-size: 20px;
+}
+
+.top-stats {
+  display: flex;
+  gap: 22px;
+}
+
+.game-layout {
+  width: min(1490px, 100%);
+  margin: auto;
+  padding: 14px;
+  display: flex;
+  gap: 14px;
+}
+
+#game-canvas {
+  display: block;
+  max-width: calc(100vw - 380px);
+  height: auto;
+  border: 5px solid #17323f;
+  border-radius: 14px;
+  background: #91d36f;
+}
+
+.side-panel {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel,
+.message-box {
+  padding: 15px;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.panel h3 {
+  margin-top: 0;
+}
+
+.panel label {
+  display: block;
+  margin: 10px 0;
+}
+
+.panel progress {
+  width: 100%;
+}
+
+.message-box {
+  min-height: 70px;
+  font-weight: bold;
+}
+
+@media (max-width: 950px) {
+  .character-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .game-layout {
+    flex-direction: column;
+  }
+
+  #game-canvas {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .side-panel {
+    width: 100%;
+  }
+}

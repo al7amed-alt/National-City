@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National City Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <h1>National City</h1>
+      <p class="tagline">Build. Help. Protect. Grow.</p>
+
+      <h2>Choose Your Player</h2>
+      <div class="character-grid">
+        <button class="character-card" data-character="girl">
+          <span class="character-icon">👧</span>
+          <strong>Girl</strong>
+          <small>Student</small>
+        </button>
+        <button class="character-card" data-character="boy">
+          <span class="character-icon">👦</span>
+          <strong>Boy</strong>
+          <small>Student</small>
+        </button>
+        <button class="character-card" data-character="woman">
+          <span class="character-icon">👩</span>
+          <strong>Woman</strong>
+          <small>Community Volunteer</small>
+        </button>
+        <button class="character-card" data-character="man">
+          <span class="character-icon">👨</span>
+          <strong>Man</strong>
+          <small>Community Volunteer</small>
+        </button>
+      </div>
+
+      <button id="start-button" disabled>Start Game</button>
+      <p class="instructions">Move with Arrow Keys or W, A, S, D. Press E near the highlighted building.</p>
+    </div>
+  </div>
+
+  <div id="game-screen" class="hidden">
+    <header class="top-bar">
+      <div>
+        <strong>National City</strong>
+        <span id="player-role"></span>
+      </div>
+      <div class="top-stats">
+        <span>🪙 <b id="coins">0</b></span>
+        <span>⭐ <b id="xp">0</b></span>
+        <span>😊 <b id="happiness-value">10</b>%</span>
+      </div>
+    </header>
+
+    <div class="game-layout">
+      <canvas id="game-canvas" width="1100" height="680"></canvas>
+
+      <aside class="side-panel">
+        <section class="panel">
+          <h3>Current Mission</h3>
+          <h4 id="mission-title">Meet the Mayor</h4>
+          <p id="mission-description">Go to City Hall and press E.</p>
+          <p><b>Reward:</b> <span id="mission-reward">100 coins + 50 XP</span></p>
+        </section>
+
+        <section class="panel">
+          <h3>City Progress</h3>
+          <label>Happiness <progress id="happiness-bar" max="100" value="10"></progress></label>
+          <label>Environment <progress id="environment-bar" max="100" value="5"></progress></label>
+          <label>Safety <progress id="safety-bar" max="100" value="5"></progress></label>
+          <label>Health <progress id="health-bar" max="100" value="5"></progress></label>
+          <label>Education <progress id="education-bar" max="100" value="5"></progress></label>
+        </section>
+
+        <section class="panel">
+          <h3>Controls</h3>
+          <p>Move: Arrow Keys / WASD</p>
+          <p>Interact: E</p>
+          <p>Pause: P</p>
+          <button id="reset-button">Restart Game</button>
+        </section>
+
+        <div id="message-box" class="message-box">
+          Welcome to National City!
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
